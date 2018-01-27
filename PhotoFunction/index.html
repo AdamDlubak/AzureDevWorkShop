@@ -9,7 +9,7 @@ $(document).ready(function(){
 	$("button").click(function(){
 		if (!$("#orderForm").valid())
 		{
-			alert("Wartości niepoprawne!");
+			alert("Wrong values!");
 			return;
 		}
 		let formValues = $("form").serializeArray();
@@ -20,12 +20,12 @@ $(document).ready(function(){
 		$.ajax({
 			type: 'POST',
 			method: 'POST',
-			url: 'YOURFUNCTIONURL',
+            url: 'https://sherfunctionapp.azurewebsites.net',
 			data: JSON.stringify(data),
 			headers : {
         "Content-Type":"application/x-www-form-urlencoded" },
 			success: function(data, status){
-			alert("Zgłoszenie dodane pomyślnie");},
+			alert("Order Added Correctly");},
 			error: function(data, status) {
 			alert(status);}
 		});
@@ -33,6 +33,7 @@ $(document).ready(function(){
 	});
 });
     </script>
+    </head>
     <body>
         <nav class="navbar navbar-light bg-light">
             <h2 class="navbar-brand">Aplikacja fotograf</h2>
@@ -56,8 +57,8 @@ $(document).ready(function(){
                     <label for="inputHeight">Wysokość:</label>
                     <input type="number" class="form-control" id="inputHeight" name="RequiredHeight" aria-describedby="inputHeightHelp" placeholder="Wprowadź oczekiwaną wysokość" required min="1">
                 </div>
+                </div>
         </form>
         <button class="btn btn-primary" style="float:right;">Zapisz</button>
-        </div>
     </body>
 </html>
